@@ -24,7 +24,9 @@ def recommend(movie):
     return recommended_movies, recommended_posters
 
 movies = pickle.load(open("movie_list.pkl", "rb"))
-similarity = pickle.load(open("similarity.pkl", "rb"))
+from sklearn.metrics.pairwise import cosine_similarity
+
+similarity = cosine_similarity(movie_vectors)
 
 st.title("🎬 Movie Recommendation System")
 
